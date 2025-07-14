@@ -3,6 +3,8 @@ import MenuItem from '@mui/material/MenuItem';
 import "./user_data.css";
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import logo from "../Images/logo_page.png";
+import Wallet from "../Images/Wallet_side_img.png";
 
 export default function User_data(){
     const navigate = useNavigate();
@@ -36,8 +38,13 @@ export default function User_data(){
         navigate('/home-page');
     }
     return(
+      <div className="box">
+        <div className="form_data">
         <form onSubmit={dataHandler}>
-            <h1>KashFlow</h1>
+            <div className="head">
+              <img src={logo}/>
+              <h1>KashFlow</h1>
+            </div>
             <br></br>
             <h2>Let's Build Your Financial Control Center </h2>
             <br></br><br></br>
@@ -82,5 +89,10 @@ export default function User_data(){
         <br></br><br></br>
         <button type="submit" className="input" >Submit</button>
         </form>
+        </div>
+        <div className="Side_Image">
+        <img src={Wallet}></img>
+        </div>
+        </div>
     )
 }

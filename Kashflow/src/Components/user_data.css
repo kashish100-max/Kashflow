@@ -1,3 +1,75 @@
 .input{
-    width:300px;
+    width:400px;
 }
+
+.input .MuiInputBase-input{
+    color: white;
+}
+
+.input .MuiInputLabel-root {
+    color: white;
+}
+
+.input .MuiInputLabel-root.Mui-focused{
+    color: white;
+}
+
+.input .MuiOutlinedInput-root fieldset {
+  border-color: white; /* Default border color */
+}
+
+.input .MuiOutlinedInput-root:hover fieldset {
+ border-color: white;/* On hover */
+  box-shadow: 2px 2px 10px white;
+}
+
+.input .MuiOutlinedInput-root.Mui-focused fieldset {
+  border-color: lightblue; /* On focus */
+  box-shadow: 2px 2px 10px lightblue;
+}
+
+
+.head img{
+    transform: scale(0.8);
+}
+
+.head h1{
+    font-size: 50px;
+    font-family: 'Poppins', sans-serif;
+    text-shadow: 2px 2px 2px white;
+}
+
+h2{
+    font-family: "Dancing Script", cursive;
+}
+
+.box{
+    display: flex;
+    justify-content: space-evenly;
+    margin: 50px;
+    margin-top: auto;
+    align-items: center;
+    height: fit-content;
+    padding: 30px;
+}
+
+.Side_Image img{
+    width:650px;
+    height:650px;
+}
+
+.form_data{
+    width: 50%;
+    text-align: center;
+}
+
+.Side_Image{
+    padding-top: 50px;
+    width:50%;
+    margin-left: 200px;
+}
+
+button{
+    border: 2px 2px solid white;
+    /* background-color: transparent; */
+} 

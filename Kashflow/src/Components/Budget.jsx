@@ -3,8 +3,6 @@ import { useState } from 'react';
 import TextField from '@mui/material/TextField';
 import { v4 as uuidv4 } from 'uuid';
 
-
-
 export default function Budget(){
     const name=localStorage.getItem("name");
     const budget=localStorage.getItem("budget");
@@ -106,6 +104,7 @@ export default function Budget(){
                 </div>
             ))}
         </div>
+
         </>
     )
 }

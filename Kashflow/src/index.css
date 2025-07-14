@@ -11,7 +11,7 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
+} */
 
 a {
   font-weight: 500;
@@ -35,21 +35,23 @@ h1 {
   line-height: 1.1;
 }
 
-button {
+ button { 
   border-radius: 8px;
-  border: 1px solid transparent;
+  color: white;
+  border: none;
   padding: 0.6em 1.2em;
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
+  background-color: transparent;
   cursor: pointer;
-  transition: border-color 0.25s;
+  box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.3);
+  transition: all 0.5s ease-in-out;
 }
 button:hover {
-  border-color: #646cff;
-}
-button:focus,
+  box-shadow: -6px -6px 12px rgba(0,0,0,0.3);
+} 
+ button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
@@ -62,7 +64,9 @@ button:focus-visible {
   a:hover {
     color: #747bff;
   }
-  button {
-    background-color: #f9f9f9;
-  }
+}
+
+body{
+  background: linear-gradient( #373B44, #4286f4);
+  color: white;
 }

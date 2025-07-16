@@ -24,10 +24,12 @@ a:hover {
 
 body {
   margin: 0;
+  padding:0;
   display: flex;
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  overflow-x: hidden;
 }
 
 h1 {
@@ -45,7 +47,7 @@ h1 {
   font-family: inherit;
   background-color: transparent;
   cursor: pointer;
-  box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.3);
+  box-shadow: -2px -2px 3px rgba(0, 0, 0, 0.2),4px 4px 6px rgba(0, 0, 0, 0.3);
   transition: all 0.5s ease-in-out;
 }
 button:hover {

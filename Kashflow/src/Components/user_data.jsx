@@ -47,7 +47,7 @@ export default function User_data(){
             </div>
             <br></br>
             <h2>Let's Build Your Financial Control Center </h2>
-            <br></br><br></br>
+            <br></br>
             <p>Set up your account</p>
             <TextField 
                    name="name"
@@ -57,7 +57,8 @@ export default function User_data(){
                    type="text" 
                    className="input" 
                    value={data.name} 
-                   onChange={valueChange}/>
+                   onChange={valueChange}
+                   />
             <br></br><br></br>
             <TextField
           id="outlined-select-currency"
@@ -85,6 +86,11 @@ export default function User_data(){
                name="budget"
                value={data.budget}
                onChange={valueChange}
+               sx={{
+                 '& .MuiFormHelperText-root': {
+          color: 'lightBlue',
+        },
+      }}
         />
         <br></br><br></br>
         <button type="submit" className="input" >Submit</button>

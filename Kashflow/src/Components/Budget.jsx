@@ -1,7 +1,8 @@
-import Avatar from '@mui/material/Avatar';
 import { useState } from 'react';
 import TextField from '@mui/material/TextField';
 import { v4 as uuidv4 } from 'uuid';
+import NavBar from "./navBar.jsx";
+import "./BUdget.css";
 
 export default function Budget(){
     const name=localStorage.getItem("name");
@@ -38,30 +39,26 @@ export default function Budget(){
 
     return(
         <>
-        <h1>Kashflow</h1>
+        <NavBar/>
         <div className="description">
-            <div>
-                <h1>Hello {name}</h1>
-                <h3>Montly budget : {currency}{budget}</h3>
-                <h3>Remaining Balance : {currency}{balance}</h3>
+            <div style={{width:"550px"}}>
+                <h1>Hello {name.toUpperCase()}</h1>
+                <h4>Welcome to the <b>Kashflow</b> family! Join us on your journey to financial well-being.</h4>
+                <p></p>
             </div>
             <div>
-                <Avatar src="/broken-image.jpg" />
+                <h2>Montly budget</h2>
+                <h5>{currency}{budget}</h5>
+            </div>
+            <div>
+                <h2>Remaining Balance </h2>
+                <h5>{currency}{balance}</h5>
             </div>
         </div>
         <div className="new-transaction">
-            <h2>Add Transaction</h2>
+            <h2>Add New Transaction</h2>
+            <br></br>
             <form onSubmit={DataHandler}>
-                <TextField 
-                      id="outlined-basic" 
-                      label="Amount" 
-                      variant="outlined" 
-                      type="Number"
-                      helperText="*In the same selected currency"
-                      value={transaction.amount}
-                      onChange={changeHandler}
-                      name="amount"/>
-                <br></br><br></br>
                 <TextField 
                       id="outlined-basic" 
                       label="Category" 
@@ -69,16 +66,24 @@ export default function Budget(){
                       type="text" 
                       value={transaction.category} 
                       onChange={changeHandler}
-                      name="category"/>
+                      name="category"
+                      className="input"/>
                 <br></br><br></br>
                 <TextField 
                       id="outlined-basic" 
                       label="Date" 
                       variant="outlined" 
                       type="date" 
+                      multiline={false}
                       value={transaction.date} 
                       onChange={changeHandler}
-                      name="date"/>
+                      name="date"
+                      className="input"
+                      InputLabelProps={{
+                        className: "DatePicker",
+                        style: { color: "#ffff" },
+                        shrink: true,
+                       }}/>
                 <br></br><br></br>
                 <TextField 
                       id="outlined-basic" 
@@ -87,9 +92,26 @@ export default function Budget(){
                       type="text" 
                       value={transaction.description} 
                       onChange={changeHandler}
-                      name="description"/>
+                      name="description"
+                      className="input"/>
                 <br></br><br></br>
-                <button>Add Transaction</button>
+                <TextField 
+                      id="outlined-basic" 
+                      label="Amount" 
+                      variant="outlined" 
+                      type="Number"
+                      helperText="*In the same selected currency"
+                      value={transaction.amount}
+                      onChange={changeHandler}
+                      name="amount"
+                      className="input"
+                      sx={{
+                 '& .MuiFormHelperText-root': {
+          color: 'lightBlue',
+        },
+      }}/>
+                <br></br><br></br>
+                <button className="input">Add Transaction</button>
             </form>
         </div>
         <br></br>

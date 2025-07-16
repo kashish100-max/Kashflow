@@ -1,0 +1,91 @@
+.description{
+    height: auto;
+    color: white;
+    border-radius: 16px;
+    margin: 3rem auto;
+    background: #1c2e4a;
+    width: 80%;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 1.5rem 0;
+    justify-content: space-evenly;
+    align-items: center;
+    backdrop-filter: blur(5px);
+    box-shadow: 4px 4px 10px rgba(24, 23, 23,0.5);
+    transition: box-shadow 0.4s ease, transform 0.4s ease;
+    backdrop-filter: blur(5px);
+}
+
+.description:hover{
+    box-shadow: 8px 8px 20px rgba(24,23,23,1);
+    transform: scale(1.02); /* subtle pop effect */
+}
+
+.description h5{
+    text-align: center;
+    color: goldenrod;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+}
+
+.description h4{
+    font-family: "Poppins", sans-serif;;
+}
+
+.new-transaction{
+    margin: 2rem auto;
+    text-align: center;
+    padding: 2rem ;
+    width:fit-content;
+    height: auto;
+    border-radius: 12px;
+    background: #1c2e4a;
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: white;
+    box-shadow: 2px 4px 16px rgba(0, 0, 0, 0.8);
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.new-transaction:hover{
+    box-shadow: 6px 10px 24px rgba(0, 0, 0, 1);
+    transform: scale(1.035);
+}
+
+.input{
+    width:400px;
+}
+
+.input .MuiInputBase-input{
+    color: white;
+}
+
+.input .MuiInputLabel-root {
+    color: white;
+}
+
+.input .MuiInputLabel-root.Mui-focused{
+    color: white;
+}
+
+.input .MuiOutlinedInput-root fieldset {
+  border-color: white; /* Default border color */
+}
+
+.input .MuiOutlinedInput-root:hover fieldset {
+ border-color: white;/* On hover */
+  box-shadow: 2px 2px 10px white;
+}
+
+.input .MuiOutlinedInput-root.Mui-focused fieldset {
+  border-color: lightblue; /* On focus */
+  box-shadow: 2px 2px 10px lightblue;
+}
+
+form{
+    width:auto;
+}
+
+.new-transaction h2{
+    color: whitesmoke;
+    text-shadow: 0px 1px 1px white;
+}

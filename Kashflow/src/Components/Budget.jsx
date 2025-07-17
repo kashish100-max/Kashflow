@@ -3,6 +3,10 @@ import TextField from '@mui/material/TextField';
 import { v4 as uuidv4 } from 'uuid';
 import NavBar from "./navBar.jsx";
 import "./BUdget.css";
+import Transaction from '../assets/Transaction.svg';
+import Expense_history from "./Expense_history.jsx";
+import Lottie from "lottie-react";
+import revenueAnimation from "../assets/Revenue.json";
 
 export default function Budget(){
     const name=localStorage.getItem("name");
@@ -55,6 +59,7 @@ export default function Budget(){
                 <h5>{currency}{balance}</h5>
             </div>
         </div>
+        <div className="transaction-part">
         <div className="new-transaction">
             <h2>Add New Transaction</h2>
             <br></br>
@@ -114,19 +119,18 @@ export default function Budget(){
                 <button className="input">Add Transaction</button>
             </form>
         </div>
-        <br></br>
-        <div className="expense-history">
-            {transactions.length>0 &&
-            transactions.map((el)=>(
-                <div key={el.id}>
-                <p>category-{el.category}</p>
-                <p>Amount-{currency}{el.amount}</p>
-                <p>date-{el.date}</p>
-                <p>Description-{el.description}</p>
-                </div>
-            ))}
+        <div className="transaction-Img">
+            <img src={Transaction} />
         </div>
-
+        </div>
+        <div className="expense-section">
+            <div style={{ width: "700px", height: "700px" }}>
+            <Lottie animationData={revenueAnimation} loop={true} autoplay={true} />
+        </div>
+         <div>
+            <Expense_history transactions={transactions} currency={currency}/>
+         </div>
+        </div>
         </>
     )
 }

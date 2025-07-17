@@ -1,0 +1,37 @@
+.expense-history{
+    margin:3rem auto;
+    width: 120%;
+    border-radius: 20px;
+    background-color: gainsboro;
+    color: black;
+    box-shadow: 5px 8px 30px rgba(24, 23, 23, 0.7);
+    transition: all 0.4s ease-in-out;
+}
+
+.expense-history:hover {
+  box-shadow: 8px 12px 40px rgba(24, 23, 23, 0.9);
+  transform: scale(1.02);
+}
+
+.expense-heading{
+    width:100%;
+    padding: 0.5rem;
+    height: auto;
+    text-align: center;
+    color: goldenrod;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    background-color: #1c2e4a;
+    font-family: "TikTok Sans", sans-serif;
+    box-shadow: 0 2px 6px #1c2e4a;
+}
+
+.expense-heading h1{
+    text-shadow: 1px 1px 2px goldenrod;
+}
+
+.history{
+    display: flex;
+    justify-content: space-between;
+    margin: 1rem;
+}

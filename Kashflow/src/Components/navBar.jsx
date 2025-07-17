@@ -10,7 +10,7 @@ export default function NavBar(){
                 <h1  style={{display:"inline"}}>KashFlow</h1>
             </div>
             <div className="user-info">
-                <Avatar src="/broken-image.jpg" sx={{width:53 ,height:53}} />
+                <Avatar src="/broken-image.jpg" sx={{width:53 ,height:53,cursor:"pointer"}} />
             </div>
         </div>
     )

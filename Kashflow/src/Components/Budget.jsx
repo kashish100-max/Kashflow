@@ -7,6 +7,7 @@ import Transaction from '../assets/Transaction.svg';
 import Expense_history from "./Expense_history.jsx";
 import Lottie from "lottie-react";
 import revenueAnimation from "../assets/Revenue.json";
+import Footer from "./Footer.jsx";
 
 export default function Budget(){
     const name=localStorage.getItem("name");
@@ -131,6 +132,7 @@ export default function Budget(){
             <Expense_history transactions={transactions} currency={currency}/>
          </div>
         </div>
+        <Footer/>
         </>
     )
 }

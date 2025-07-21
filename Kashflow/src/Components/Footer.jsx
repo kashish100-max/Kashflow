@@ -16,27 +16,27 @@ export default function Footer(){
                     for students and young professionals.
                 </p>
             </div>
-            <div className="middle-part" style={{width:"30%"}}>
+            <div className="middle-part">
                 <div className="Icons">
-                    <div><a><LinkedInIcon/></a></div>
-                    <div><a><GitHubIcon/></a></div>
-                    <div><a><InstagramIcon/></a></div>
+                    <div><a><LinkedInIcon  fontSize="large"/></a></div>
+                    <div><a><GitHubIcon  fontSize="large"/></a></div>
+                    <div><a><InstagramIcon  fontSize="large"/></a></div>
                 </div>
-                <p>Stay connected with us
+                <p style={{marginBottom:"6%"}}>Stay connected with us
                 <br></br>Follow us for updates
                 <br></br>Let's grow financially smart together</p>
-                <a>Got feedback? Tell us!</a>
+                <a href="#" className="feedback">Got feedback? Tell us!</a>
             </div>
             <div className="why-kashflow">
                 <h2>Why Kashflow?</h2>
                 <p>Track expenses
-                <br></br>set goals
+                <br></br>Set Goals
                 <br></br>Clear Insights
                 <br></br>Student-friendly</p>
             </div>
             </div>
             <div className="footer-bottom">
-                <p>&copy; 2025 Kashflow • Built with ❤️ by Kashish • All rights reserved</p>
+                <p>&copy; 2025 Kashflow <span>•</span> Built with ❤️ by Kashish <span>•</span> All rights reserved</p>
             </div>
         </div>
     )

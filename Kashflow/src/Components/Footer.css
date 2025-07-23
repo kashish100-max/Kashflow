@@ -105,8 +105,13 @@ span{
     color:goldenrod;
 }
 
-.middle-part .feedback{
+.middle-part .feedback-link{
     font-size: large;
     color:#1c2e4a;
     font-weight: 500;
+    transition: 0.2s ease-in;
+}
+
+.middle-part .feedback-link:hover{
+    font-weight: 700;
 }

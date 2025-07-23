@@ -25,7 +25,7 @@ export default function Footer(){
                 <p style={{marginBottom:"6%"}}>Stay connected with us
                 <br></br>Follow us for updates
                 <br></br>Let's grow financially smart together</p>
-                <a href="#" className="feedback">Got feedback? Tell us!</a>
+                <a href="/feedback" className="feedback-link">Got feedback? Tell us!</a>
             </div>
             <div className="why-kashflow">
                 <h2>Why Kashflow?</h2>

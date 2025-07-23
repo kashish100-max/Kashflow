@@ -1,0 +1,171 @@
+.form-data .emojis{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap:wrap;
+}
+
+.feedback .form-data{
+    width: 100%;
+    padding:1rem;
+}
+
+.feedback{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap:3rem;
+}
+
+.animation{
+    width:750px;
+}
+
+
+.feedback .feedback-form{
+    width:600px;
+    border:1px solid white;
+    height: auto;
+    border-radius: 30px;
+}
+
+.emojis div{
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+.emojis div:hover{
+    transform: scale(1.076);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+}
+
+.head{
+    text-align: center;
+    padding: 0.5rem;
+    background-color:#1c2e4a;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+}
+
+.input::placeholder{
+    color: white;
+    opacity:1;
+}
+
+h4{
+    text-align: center;
+    margin: 0.8rem;
+}
+
+.text-area textarea{
+    margin:0.1rem 0;
+    width:100%;
+    border-radius: 13px;
+    height: 4rem;
+}
+
+
+.input-icon .icon{
+    font-size: 2.4rem;
+}
+
+.input-icon {
+  position: relative;
+  width: 100%;
+}
+
+.input-icon .icon {
+  position: absolute;
+  top: 50%;
+  left: 18px;
+  transform: translate(1430%,-50%);
+  color: white;
+  transition: transform 0.4s ease, opacity 0.4s ease;
+  pointer-events: none;
+  opacity:0;
+}
+
+.input {
+  padding: 0.7rem;
+  width: 100%;
+  border-radius: 30px;
+  background: transparent;
+  color: white;
+  margin: 0.6rem 0;
+  border: 1px solid white;
+  transition: box-shadow 0.3s ease;
+}
+
+.input:focus,
+.input:hover {
+  box-shadow: 0 0 10px white;
+}
+
+/* 🔥 Main Animation */
+.input-icon:hover .icon,
+.input:focus .icon,
+.input-icon .active{
+  transform: translate(1310%,-50%);
+  opacity: 1;
+}
+
+button{
+    margin:0.5rem auto;
+    width:70%;
+    display: block;
+    border-radius: 26px;
+    overflow:hidden;
+    text-align: center;
+}
+
+.icon-plane{
+    font-size: 1.4rem;
+    transform: translateX(-12rem);
+    transition: transform 3s ease;
+}
+
+.icon-plane.clicked{
+    transform: translateX(30rem);
+}
+
+.text{
+    display: inline-block;
+    transform: translateX(-3rem);
+    transition: transform 1s ease;
+}
+
+.text.clicked{
+    transform: translateX(20rem);
+}
+
+.button{
+    transition: 3s ease;
+}
+
+.check{
+    color: white;
+    font-size: 1.2rem;
+    transform: translateX(-10rem);
+    transition: 3s ease;
+}
+
+.success{
+    display: inline-block;
+    color: white;
+    font-size: 1.4rem;
+    transform: translateX(-10rem);
+    transition: 3s ease;
+}
+
+.success.clicked{
+    transform: translateX(6rem);
+}
+
+.check.clicked{
+    transform: translateX(6rem);
+}
+
+.button.clicked{
+    background-color: green;
+}

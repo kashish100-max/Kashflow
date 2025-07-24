@@ -24,9 +24,16 @@
 
 .feedback .feedback-form{
     width:600px;
-    border:1px solid white;
     height: auto;
     border-radius: 30px;
+    box-shadow: 4px 8px 10px rgba(0, 0, 0, 0.5);
+    transition: box-shadow 0.4s ease, transform 0.4s ease;
+    transform: translateY(0);
+}
+
+.feedback .feedback-form:hover {
+    box-shadow: 8px 16px 24px rgba(0, 0, 0, 0.5);
+    transform: translateY(-8px) scale(1.01);
 }
 
 .emojis div{
@@ -40,22 +47,32 @@
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
 }
 
-.head{
+.form-head{
     text-align: center;
-    padding: 0.5rem;
-    background-color:#1c2e4a;
+    padding: 0.3rem;
     border-top-left-radius: 30px;
     border-top-right-radius: 30px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.4);
 }
 
-.input::placeholder{
-    color: white;
+.form-head h3{
+    text-shadow: 1px 1px 2px goldenrod;
+    color: goldenrod;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 800;
+}
+
+.inputField::placeholder{
+    color: rgb(194, 191, 191);
     opacity:1;
 }
 
-h4{
+.rating-head{
     text-align: center;
     margin: 0.8rem;
+    color: gainsboro;
+    font-weight: 800;
+    text-shadow: 0px 1px 1px gainsboro;
 }
 
 .text-area textarea{
@@ -63,6 +80,28 @@ h4{
     width:100%;
     border-radius: 13px;
     height: 4rem;
+    background-color: transparent;
+    border: 1px solid gainsboro;
+    box-shadow: 0px 0px 4px gainsboro;
+    transition: box-shadow 0.3s ease;
+    color: white;
+}
+
+.text-area textarea::placeholder{
+    color: rgb(194, 191, 191);
+    opacity:1;
+}
+
+.text-area textarea:hover,
+.text-area textarea:focus{
+    box-shadow: 0 0 9px white;
+}
+
+.text-area h3{
+    color: gainsboro;
+    font-weight: 800;
+    text-align: center;
+    font-size: large;
 }
 
 
@@ -86,37 +125,29 @@ h4{
   opacity:0;
 }
 
-.input {
+.inputField {
   padding: 0.7rem;
   width: 100%;
   border-radius: 30px;
   background: transparent;
   color: white;
   margin: 0.6rem 0;
-  border: 1px solid white;
+  border: 1px solid gainsboro;
   transition: box-shadow 0.3s ease;
+  box-shadow: 0 0 3px gainsboro;
 }
 
-.input:focus,
-.input:hover {
+.inputField:focus,
+.inputField:hover {
   box-shadow: 0 0 10px white;
 }
 
 /* 🔥 Main Animation */
 .input-icon:hover .icon,
-.input:focus .icon,
+.input-icon:focus .icon,
 .input-icon .active{
   transform: translate(1310%,-50%);
   opacity: 1;
-}
-
-button{
-    margin:0.5rem auto;
-    width:70%;
-    display: block;
-    border-radius: 26px;
-    overflow:hidden;
-    text-align: center;
 }
 
 .icon-plane{
@@ -141,6 +172,12 @@ button{
 
 .button{
     transition: 3s ease;
+    margin:0.5rem auto;
+    width:70%;
+    display: block;
+    border-radius: 26px;
+    overflow:hidden;
+    text-align: center;
 }
 
 .check{
@@ -166,6 +203,15 @@ button{
     transform: translateX(6rem);
 }
 
+@keyframes successGlow {
+  0% { box-shadow: 0 0 0px rgba(255, 255, 255, 0); }
+  50% { box-shadow: 0 0 15px rgba(255, 255, 255, 0.7); }
+  100% { box-shadow: 0 0 0px rgba(255, 255, 255, 0); }
+}
+
 .button.clicked{
-    background-color: green;
+    background: linear-gradient(to right, #1e90ff, #00bfff);
+    border: 1px solid #4a90e2;
+    /* box-shadow: 0 4px 12px rgba(0, 201, 255, 0.4); */
+    animation: successGlow 1s ease-in-out 1;
 }

@@ -9,12 +9,15 @@ import happy from "../assets/happy.json";
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import EmailIcon from '@mui/icons-material/Email';
 import "./Feedback.css";
+import Checkbox from '@mui/material/Checkbox';
+import FormControlLabel from '@mui/material/FormControlLabel';
+
 
 export default function Feedback(){
     let [des,setDes]=useState("");
     let [cond,setCond]=useState(false);
     let [selectedDes,setSelectedDes]=useState("");
-    let [data,setData]=useState({username:"",email:""});
+    let [data,setData]=useState({username:"",email:"",comment:"",wantToreffer:false});
     let [active,setActive]=useState(false)
 
     let description=[
@@ -38,7 +41,7 @@ export default function Feedback(){
     function dataHandler(event){
         setData((data)=>{
             return{
-                ...data,[event.target.name]:event.target.value
+                ...data,[event.target.name]:event.target.value,wantToreffer:true
             }
         })
     }
@@ -50,20 +53,20 @@ export default function Feedback(){
                 <Lottie animationData={feedbackAnimation} loop={true} autoplay={true}/>
             </div>
             <div className="feedback-form">
-                <div className="head">
+                <div className="form-head">
                     <h3>Help Us Improve</h3>
                 </div>
                 <div className="form-data">
-                    <form onSubmit={(e)=>{e.preventDefault(); console.log(data); setActive(true)}}>      
+                    <form onSubmit={(e)=>{e.preventDefault(); console.log(data); setActive(true); setData({username:"",email:"",comment:"",wantToreffer:false})}}>      
                         <div className="input-icon">
                             <AccountCircleIcon className={`icon ${data.username?"active":""}`}/>
-                            <input placeholder="enter username" type="text" className="input" name="username" value={data.username} onChange={dataHandler}></input>
+                            <input placeholder="enter username" type="text" className="inputField" name="username" value={data.username} onChange={dataHandler}></input>
                         </div>
                         <div className="input-icon">
                             <EmailIcon className={`icon  ${data.email?"active":""}`}/>
-                            <input placeholder="enter email" type="email" className="input" name="email" value={data.email} onChange={dataHandler}></input>
+                            <input placeholder="enter email" type="email" className="inputField" name="email" value={data.email} onChange={dataHandler}></input>
                         </div>
-                        <h4>Rate your Experience</h4>
+                        <h4 className="rating-head">Rate your Experience</h4>
                         <div className="emojis">
                             <div style={{transform: selectedDes === "sad" ? "scale(1.3)": "none"}}>
                                 <Lottie animationData={Sad} loop={true} autoplay={true} style={{width:80,height:80}} onMouseOver={()=>hoverHandler("sad")} onClick={()=>clickhandler("sad")}/>
@@ -81,17 +84,28 @@ export default function Feedback(){
                                 <Lottie animationData={smile} loop={true} autoplay={true} style={{width:95,height:95, }} onMouseOver={()=>hoverHandler("smile")} onClick={()=>clickhandler("smile")}/>
                             </div>
                         </div>
-                        <p style={{textAlign:"center", fontWeight:"500", marginTop:"0.7rem"}}>
+                        <p style={{textAlign:"center", fontWeight:"500", marginTop:"0.7rem",fontSize:"medium",color:"yellow"}}>
                                     {cond ? des : description.find(el => el.name === selectedDes)?.para}
                         </p>
                         <div className="text-area">
-                            <h6>Share your Experience with Kashflow</h6>
-                            <textarea placeholder="please describe your experience in detail"/>
+                            <h3>Share your Experience with Kashflow</h3>
+                            <textarea placeholder="please describe your experience in detail....." value={data.comment} name="comment" onChange={dataHandler}/>
                         </div>
+                        <FormControlLabel control={<Checkbox sx={{color:"white",'&.Mui-checked': { color: "white"}}} checked={data.wantToreffer} onChange={dataHandler}/>} label="I'd love to refer Kashflow to my friends!" componentsProps={{
+    typography: {
+      sx: {
+        color: '#E0E7FF',
+        fontSize: '1rem',
+        '&:hover': {
+          color: '#67E8F9',
+        },
+      },
+    },
+  }}/>
                         <div className="submit">
                             <button type="submit" className={`button ${active?"clicked":""}`}>
-                                <i className={`fa-solid fa-circle-check check ${active?"clicked":""}`}></i>
-                                <span className={`success ${active?"clicked":""}`}>Success</span>
+                                <i className={`fa-solid fa-circle-check check ${active?"clicked":""}`} style={{color:"#1c2e4a"}}></i>
+                                <span className={`success ${active?"clicked":""}`} style={{color:"#1c2e4a"}}>Success</span>
                                 <i className={`fa-solid fa-plane icon-plane ${active?"clicked":""}`}></i>
                                 <span style={{color:"white",fontSize:"1.4rem"}} className={`text ${active?"clicked":""}`}>Send Feedback</span>
                             </button>

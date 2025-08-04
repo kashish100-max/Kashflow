@@ -3,7 +3,6 @@
     color: white;
     border-radius: 16px;
     margin: 3rem auto;
-    background: #1c2e4a;
     width: 80%;
     display: flex;
     flex-wrap: wrap;
@@ -13,7 +12,8 @@
     backdrop-filter: blur(5px);
     box-shadow: 4px 4px 10px rgba(24, 23, 23,0.5);
     transition: box-shadow 0.4s ease, transform 0.4s ease;
-    backdrop-filter: blur(5px);
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
 }
 
 .description:hover{

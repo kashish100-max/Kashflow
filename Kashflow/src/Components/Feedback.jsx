@@ -18,7 +18,8 @@ export default function Feedback(){
     let [cond,setCond]=useState(false);
     let [selectedDes,setSelectedDes]=useState("");
     let [data,setData]=useState({username:"",email:"",comment:"",wantToreffer:false});
-    let [active,setActive]=useState(false)
+    let [active,setActive]=useState(false);
+    let [errors, setErrors] = useState({});
 
     let description=[
         {name:"happy",para:"This is great!"},
@@ -41,9 +42,33 @@ export default function Feedback(){
     function dataHandler(event){
         setData((data)=>{
             return{
-                ...data,[event.target.name]:event.target.value,wantToreffer:true
+                ...data,[event.target.name]:event.target.value,wantToreffer:event.target.checked
             }
         })
+    }
+
+    function submitHandler(e){
+        e.preventDefault();
+        let newErrors = {};
+
+        if (!data.username.trim()) newErrors.username = "Username is required";
+        if (!data.email.trim()) {
+            newErrors.email = "Email is required";
+        } else if (!/^\S+@\S+\.\S+$/.test(data.email)) {
+            newErrors.email = "Invalid email format";
+        }
+        if (!data.comment.trim()) newErrors.comment = "Comment is required";
+        if (!selectedDes) newErrors.rating = "Please select a rating";
+
+        if (Object.keys(newErrors).length > 0) {
+            setErrors(newErrors);
+            return;
+        }
+
+        setErrors({});
+        console.log(data); 
+        setActive(true); 
+        setData({username:"",email:"",comment:"",wantToreffer:false});
     }
 
 
@@ -52,20 +77,22 @@ export default function Feedback(){
             <div className="animation">
                 <Lottie animationData={feedbackAnimation} loop={true} autoplay={true}/>
             </div>
-            <div className="feedback-form">
+            <div className={`feedback-form ${active?"clicked":""}`}>
                 <div className="form-head">
                     <h3>Help Us Improve</h3>
                 </div>
                 <div className="form-data">
-                    <form onSubmit={(e)=>{e.preventDefault(); console.log(data); setActive(true); setData({username:"",email:"",comment:"",wantToreffer:false})}}>      
+                    <form onSubmit={submitHandler}>      
                         <div className="input-icon">
                             <AccountCircleIcon className={`icon ${data.username?"active":""}`}/>
                             <input placeholder="enter username" type="text" className="inputField" name="username" value={data.username} onChange={dataHandler}></input>
                         </div>
+                        {errors.username && <p className="error">{errors.username}</p>}
                         <div className="input-icon">
                             <EmailIcon className={`icon  ${data.email?"active":""}`}/>
                             <input placeholder="enter email" type="email" className="inputField" name="email" value={data.email} onChange={dataHandler}></input>
                         </div>
+                        {errors.email && <p className="error">{errors.email}</p>}
                         <h4 className="rating-head">Rate your Experience</h4>
                         <div className="emojis">
                             <div style={{transform: selectedDes === "sad" ? "scale(1.3)": "none"}}>
@@ -87,18 +114,18 @@ export default function Feedback(){
                         <p style={{textAlign:"center", fontWeight:"500", marginTop:"0.7rem",fontSize:"medium",color:"yellow"}}>
                                     {cond ? des : description.find(el => el.name === selectedDes)?.para}
                         </p>
+                        {errors.rating && <p className="error">{errors.rating}</p>}
                         <div className="text-area">
                             <h3>Share your Experience with Kashflow</h3>
                             <textarea placeholder="please describe your experience in detail....." value={data.comment} name="comment" onChange={dataHandler}/>
+                            {errors.comment && <p className="error">{errors.comment}</p>}
                         </div>
-                        <FormControlLabel control={<Checkbox sx={{color:"white",'&.Mui-checked': { color: "white"}}} checked={data.wantToreffer} onChange={dataHandler}/>} label="I'd love to refer Kashflow to my friends!" componentsProps={{
-    typography: {
-      sx: {
-        color: '#E0E7FF',
-        fontSize: '1rem',
-        '&:hover': {
-          color: '#67E8F9',
-        },
+                        <FormControlLabel control={<Checkbox  checked={data.wantToreffer} sx={{color:"white",'&.Mui-checked': { color: "white"}}} onChange={dataHandler}/>} label="I'd love to refer Kashflow to my friends!" sx={{
+    '& .MuiFormControlLabel-label': {
+      color: '#E0E7FF',
+      fontSize: '1rem',
+      '&:hover': {
+        color: '#67E8F9',
       },
     },
   }}/>

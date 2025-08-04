@@ -69,6 +69,6 @@ button:focus-visible {
 }
 
 body{
-  background: linear-gradient( #373B44, #4286f4);
+  background:linear-gradient(135deg, #0f2d41, #3375a1, #bbe1fa);
   color: white;
 }
